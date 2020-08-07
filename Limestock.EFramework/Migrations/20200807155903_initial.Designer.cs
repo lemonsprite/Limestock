@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Limestock.EFramework.Migrations
 {
     [DbContext(typeof(LimestockDbContext))]
-    [Migration("20200807150246_inital")]
-    partial class inital
+    [Migration("20200807155903_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -8,14 +8,9 @@ namespace Limestock.EFramework
 {
     public class LimestockDbContext : DbContext
     {
+        //konstruktor untuk kelas dbContext
+        public LimestockDbContext(DbContextOptions options) : base(options) { }
+
         public DbSet<User> Users { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            string lokasi = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App.db");
-            optionsBuilder.UseSqlite($"Filename={lokasi}");
-
-            base.OnConfiguring(optionsBuilder);
-        }
     }
 }
