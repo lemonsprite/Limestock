@@ -13,11 +13,11 @@ using System.Windows.Shapes;
 namespace Limestock.GUI
 {
     /// <summary>
-    /// Interaction logic for LoginWindow.xaml
+    /// Interaction logic for SplashScreen.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class SplashScreen : Window
     {
-        public LoginWindow()
+        public SplashScreen()
         {
             InitializeComponent();
         }
