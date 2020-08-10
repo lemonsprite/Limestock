@@ -5,14 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Limestock.GUI"
         mc:Ignorable="d"
-        Title="SplashScreen" Height="340" Width="500"
+        Title="SplashScreen" Height="300" Width="540"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Background="White"
+        Background="Transparent"
         BorderBrush="Transparent"
+        AllowsTransparency="True"
+        Foreground="Transparent"
+        BorderThickness="0"
         ShowInTaskbar="False">
     <Grid>
-        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.RowSpan="2" CornerRadius="5" BorderThickness="0" BorderBrush="Transparent">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#FF0091F5" Offset="0"></GradientStop>
+                        <GradientStop Color="#FFC79EC9" Offset="0.5"></GradientStop>
+                        <GradientStop Color="#FF920099" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <StackPanel Orientation="Vertical"
+                        Margin="40,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <TextBlock Text="ls"
+                           FontFamily="Dancing Script"
+                           FontSize="140"
+                           Opacity="0.8"
+                           Foreground="White"/>
+
+            </StackPanel>
+            <StackPanel Grid.Row="2"
+                        HorizontalAlignment="Center"
+                        Margin="40,0"
+                        VerticalAlignment="Top">
+                <TextBlock Text="Limestock Manager"
+                           Foreground="White"
+                           FontFamily="Satisfy"
+                           FontSize="45"/>
+                <TextBlock Text="Versi 1.0.0"
+                           Foreground="White"
+                           FontFamily="Ubuntu"
+                           FontSize="14"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
