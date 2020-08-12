@@ -37,7 +37,7 @@ namespace Limestock.GUI
         private void Masuk_Click(object sender, RoutedEventArgs e)
         {
             // Autentikasi textbox
-            if ((string)userName.Text == "alfath.noor17@gmail.com" && (string)passWord.Password == "51792914")
+            if ((string)userName.Text != null && (string)passWord.Password != null)
             {
                 // Bikin thread mainWindow
                 Window mainWindow = new MainWindow();
@@ -49,11 +49,9 @@ namespace Limestock.GUI
         // Enter_key event
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            // Kalo mencet enter di gui
+            // Kalo mencet enter di window auth
             if(e.Key == Key.Enter)
                 Masuk_Click(sender, e);
         }
-
-        
     }
 }

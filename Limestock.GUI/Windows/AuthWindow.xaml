@@ -10,7 +10,7 @@
         WindowStyle="none" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown"
-        KeyDown="Window_KeyDown">
+        KeyDown="Window_KeyDown" Icon="/Windows/limestock.ico">
     <Window.Resources>
         <Style x:Key="HoverNone" TargetType="{x:Type Button}">
             <Setter Property="BorderThickness" Value="1"/>
@@ -96,15 +96,14 @@
                         x:Name="authClose_btn"
                         Click="authClose_btn_Click"
                         Background="Transparent"
-                        Padding="5"
+                        Padding="0"
                         Margin="0,10,5,0"
                         BorderBrush="Transparent">
-                    <Path  Data="M319,170.8c-4.8-4.8-12.5-4.8-17.3,0l-56.8,56.8l-56.8-56.8c-4.8-4.8-12.5-4.8-17.3,0s-4.8,12.5,0,17.3l56.8,56.8
-			l-56.8,56.8c-4.8,4.8-4.8,12.5,0,17.3c2.4,2.4,5.5,3.6,8.7,3.6s6.3-1.2,8.7-3.6l56.8-56.8l56.8,56.8c2.4,2.4,5.5,3.6,8.7,3.6
-			s6.3-1.2,8.7-3.6c4.8-4.8,4.8-12.5,0-17.3l-57-56.8l56.8-56.8C323.8,183.3,323.8,175.6,319,170.8z"
-                       Fill="White"
-                       Width="15"
-                       Stretch="Uniform"/>
+
+                    <Path Data="{StaticResource lpicon_close}"
+                          Fill="White"
+                          Width="18"
+                          Stretch="Uniform"/>
                 </Button>
                 <StackPanel>
                     <TextBlock Text="ls"
@@ -143,7 +142,8 @@
                         <TextBlock Text="Password"
                                    Foreground="White"
                                    FontWeight="Bold"/>
-                        <PasswordBox x:Name="passWord" 
+                        <PasswordBox x:Name="passWord"
+                                     Visibility="Visible"
                                      Height="30"
                                      Padding="5,0"
                                      Background="Transparent"
@@ -151,6 +151,16 @@
                                      VerticalContentAlignment="Center"
                                      FontSize="16"
                                      Foreground="white"/>
+                        <!--<Button x:Name="eyeBtn" Width="30"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    ClickMode="Press"
+                                    Click="eyeBtn_Click">
+                                <Path Data="{StaticResource lpicon_eye}"
+                                      Height="30"
+                                      Stretch="Uniform"
+                                      Fill="White"/>
+                            </Button>-->
                         <Border Height="2"
                                 Background="white"/>
                     </StackPanel>
@@ -158,20 +168,28 @@
 
             </StackPanel>
 
-            <Button Style="{DynamicResource MinBtn}" Grid.Row="2"
+            <CheckBox Grid.Row="2"
+                      Content="Tetap masuk" 
+                      Margin="50,0"
+                      Foreground="white"/>
+            <Button Style="{DynamicResource MinBtn}" 
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
                     x:Name="Masuk"
+                    
+                    FontWeight="Bold"
                     Click="Masuk_Click"
                     VerticalAlignment="Top"
                     Height="35"
                     Content="MASUK"
-                    Margin="50,25,20,0"/>
+                    Margin="50,30,50,0"/>
 
 
-            <Button Style="{DynamicResource MinBtn}" Grid.Row="2" Grid.Column="1"
+            <!--<Button Style="{DynamicResource MinBtn}" Grid.Row="2" Grid.Column="1"
                     VerticalAlignment="Top"
                     Height="35"
                     Content="DAFTAR"
-                    Margin="20,25,50,0"/>
+                    Margin="20,25,50,0"/>-->
         </Grid>
     </Grid>
 </Window>

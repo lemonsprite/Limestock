@@ -23,7 +23,7 @@ namespace Limestock.GUI
             SplashScreen splashScreen = new SplashScreen();
             splashScreen.Show();
             Stopwatch timer = new Stopwatch();
-            
+
             // hitung time startup
             timer.Start();
             base.OnStartup(e);
@@ -38,6 +38,9 @@ namespace Limestock.GUI
             // finalisasi splashScreen
             splashScreen.Close();
             loginWindow.Show();
+
+            //Window main = new MainWindow();
+            //main.Show();
 
         }
     }

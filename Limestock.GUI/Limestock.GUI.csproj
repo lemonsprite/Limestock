@@ -4,6 +4,21 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <SignAssembly>false</SignAssembly>
+    <StartupObject>Limestock.GUI.App</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Windows\limestock.ico" />
+    <None Remove="Windows\limestock.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Windows\limestock.ico" />
+  </ItemGroup>
 
 </Project>

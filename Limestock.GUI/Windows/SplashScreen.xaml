@@ -14,7 +14,7 @@
         AllowsTransparency="True"
         Foreground="Transparent"
         BorderThickness="0"
-        ShowInTaskbar="False">
+        ShowInTaskbar="False" Icon="/Windows/limestock.ico">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
