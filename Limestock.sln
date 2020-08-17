@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Limestock.Domain", "Limestock.Domain\Limestock.Domain.csproj", "{814BA4C2-D5DA-43F3-BDCC-76F9994BC302}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Limestock.EFramework", "Limestock.EFramework\Limestock.EFramework.csproj", "{FEE2485D-69B1-4A8F-ABAB-C4AA0AE60A43}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Limestock.EFramework", "Limestock.EFramework\Limestock.EFramework.csproj", "{FEE2485D-69B1-4A8F-ABAB-C4AA0AE60A43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Limestock.GUI", "Limestock.GUI\Limestock.GUI.csproj", "{3AE5E329-02B4-45BA-88CB-C2D0300ACCB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Limestock.GUI", "Limestock.GUI\Limestock.GUI.csproj", "{3AE5E329-02B4-45BA-88CB-C2D0300ACCB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

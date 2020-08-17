@@ -11,9 +11,8 @@ namespace Limestock.EFramework
         public LimestockDbContext CreateDbContext(string[] args = null)
         {
             var opsi = new DbContextOptionsBuilder<LimestockDbContext>();
-            string lokasi = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App.db");
+            string lokasi = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "LimestockApp.db");
             opsi.UseSqlite($"Filename={lokasi}");
-
             return new LimestockDbContext(opsi.Options);
         }
     }
