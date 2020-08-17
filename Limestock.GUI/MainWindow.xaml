@@ -20,7 +20,7 @@
                   Width="70"
                   Background="{StaticResource Brushsecondary}">
                 <StackPanel>
-                    <Grid Height="60">
+                    <Grid Height="70">
                         <ToggleButton Style="{DynamicResource burgerStyle}" x:Name="burger_btn"
                                       BorderThickness="0"
                                       HorizontalAlignment="Center"
@@ -28,12 +28,48 @@
                                       BorderBrush="Transparent"
                                       VerticalAlignment="Center"
                                       Padding="20"
-                                      Width="70">
+                                      Height="70">
                             <Path Data="{StaticResource lpicon_burger}"
                                   Stretch="Uniform"
                                   Fill="White"/>
                         </ToggleButton>
                     </Grid>
+                    
+                    <!--// Menu List //-->
+                    <ListView x:Name="menuList"
+                              Background="Transparent"
+                              BorderBrush="Transparent"
+                              Padding="0"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        
+                        <!--#region menuBeranda -->
+                        <ListViewItem HorizontalAlignment="Left"
+                                      Padding="0"
+                                      BorderThickness="0"
+                                      Height="60"
+                                      BorderBrush="Transparent">
+                            <StackPanel Orientation="Horizontal"
+                                        Width="230">
+                                <Path Data="{StaticResource lpicon_stack}"
+                                      Stretch="Uniform"
+                                      Width="32"
+                                      Margin="16,0,0,0"
+                                      Fill="White"/>
+                                <TextBlock Text="Beranda"
+                                           Margin="30,0"
+                                           Style="{DynamicResource sidebarFont}"/>
+                            </StackPanel>
+                            
+                            
+                            <ListBoxItem.ToolTip>
+                                <ToolTip x:Name="home_tt" Content="Beranda" Style="{DynamicResource tooltipStyle}"/>
+                            </ListBoxItem.ToolTip>
+                        </ListViewItem>
+
+                        
+                        
+                    </ListView>
+                    
                 </StackPanel>
                 
             </Grid>
