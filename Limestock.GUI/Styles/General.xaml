@@ -2,62 +2,104 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     
     <!--warna-->
-    <Color x:Key="Primary">#4D4D4D</Color>
-    <Color x:Key="Primary2">#4283DE</Color>
-    <Color x:Key="Secondary">#5D5D5D</Color>
-    <Color x:Key="Secondary2">#FFFFFF</Color>
+    
+    <!--#region Warna Karamel-->
+    <Color x:Key="Caramel_Light">#FFC97D59</Color>
+    <Color x:Key="Caramel_Light_x">#FFD4825D</Color>
+    <Color x:Key="Caramel_Dark">#FFAA4D22</Color>
+    <SolidColorBrush x:Key="Color_DarkCaramel" Color="{StaticResource Caramel_Dark}"/>
+    <SolidColorBrush x:Key="Color_LightCaramel" Color="{StaticResource Caramel_Light}"/>
+    <SolidColorBrush x:Key="Color_LightCaramel_x" Color="{StaticResource Caramel_Light_x}"/>
+    <!--#endregion-->
+    
+    
+    <Color x:Key="Secondary">#FF5D5D5D</Color>
+    <Color x:Key="Secondary2">#FFFFFFFF</Color>
     
     
     <Color x:Key="fontColor">#FFFFFF</Color>
     <Color x:Key="fontColor2">#A6A6A6</Color>
     
-    <!--brush-->
-    <SolidColorBrush x:Key="Brushprimary" Color="{StaticResource Primary}"/>
-    <SolidColorBrush x:Key="Brushprimary2" Color="{StaticResource Primary2}"/>
-    <SolidColorBrush x:Key="Brushsecondary" Color="{StaticResource Secondary}"/>
-    <SolidColorBrush x:Key="Brushsecondary2" Color="{StaticResource Secondary2}"/>
-    
+    <!-- Color Brush Definition -->
 
-    <SolidColorBrush x:Key="Color" Color="{StaticResource fontColor}"/>
-    <SolidColorBrush x:Key="Color2" Color="{StaticResource fontColor2}"/>
-    <Style x:Key="FocusVisual">
-        <Setter Property="Control.Template">
-            <Setter.Value>
-                <ControlTemplate>
-                    <Rectangle Margin="2" StrokeDashArray="1 2" SnapsToDevicePixels="true" StrokeThickness="1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style x:Key="burgerStyle" TargetType="{x:Type ToggleButton}">
+    <SolidColorBrush x:Key="Brushsecondary" Color="{StaticResource Secondary}"/>
+
+    <BeginStoryboard x:Key="Slide">
+        <Storyboard x:Name="SlideOpen">
+            <DoubleAnimation Storyboard.TargetName="sidebar_panel"
+                             Storyboard.TargetProperty="Width"
+                             BeginTime="0:0:00"
+                             From="55" To="150">
+            </DoubleAnimation>
+        </Storyboard>
+    </BeginStoryboard>
+
+    <Style x:Key="SidebarButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="20"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ToggleButton}">
-                    <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="true">
-                        <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="SidebarButton"
+                            Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter x:Name="contentPresenter" 
+                                          Focusable="False"/>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="Button.IsDefaulted" Value="true">
-                            <Setter Property="Background" TargetName="border" Value="{StaticResource Brushprimary}"/>
+                        <Trigger Property="IsDefaulted" Value="true">
+                            <Setter Property="BorderBrush" TargetName="SidebarButton" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
                         </Trigger>
-                        <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Background" TargetName="border" Value="{StaticResource Brushprimary}"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="true">
-                            <Setter Property="Background" TargetName="border" Value="{StaticResource Brushprimary}"/>
-                        </Trigger>
-                        <!--<Trigger Property="IsChecked" Value="true">
-                            <Setter Property="Background" TargetName="border" Value="{StaticResource Brushprimary}"/>
+                        <!--<Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="SidebarButton" Value="#FFD4825D"/>
                         </Trigger>-->
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="SidebarButton" Value="Transparent"/>
+                        </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Background" TargetName="border" Value="{StaticResource Brushprimary}"/>
-                            <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="#FF838383"/>
+                            
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+    <Style x:Key="ProfilButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="ProfilButton"
+                            Background="{TemplateBinding Background}" 
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter x:Name="contentPresenter" 
+                                          Focusable="False"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsDefaulted" Value="true">
+                            <Setter Property="BorderBrush" TargetName="ProfilButton" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Cursor" TargetName="ProfilButton" Value="Hand"/>
+                            <Setter Property="Background" TargetName="ProfilButton" Value="Transparent"/>
+                        </Trigger>
+                        
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 
     <!--// Sidebar Title //-->
     <Style x:Key="sidebarFont" TargetType="TextBlock">
