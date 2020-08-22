@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Assets\limestock.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Assets\" />
+    <Folder Include="Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Satisfy-Regular.ttf" />
+    <Resource Include="Fonts\Ubuntu-Bold.ttf" />
+    <Resource Include="Fonts\Ubuntu-BoldItalic.ttf" />
+    <Resource Include="Fonts\Ubuntu-Italic.ttf" />
+    <Resource Include="Fonts\Ubuntu-Light.ttf" />
+    <Resource Include="Fonts\Ubuntu-LightItalic.ttf" />
+    <Resource Include="Fonts\Ubuntu-Medium.ttf" />
+    <Resource Include="Fonts\Ubuntu-MediumItalic.ttf" />
+    <Resource Include="Fonts\Ubuntu-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets/li_user.png" />
+  </ItemGroup>
+</Project>
