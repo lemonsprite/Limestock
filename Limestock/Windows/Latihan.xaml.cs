@@ -10,16 +10,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Limestock.GUI
+namespace Limestock.Windows
 {
     /// <summary>
-    /// Interaction logic for SplashScreen.xaml
+    /// Interaction logic for Latihan.xaml
     /// </summary>
-    public partial class SplashScreen : Window
+    public partial class Latihan : Window
     {
-        public SplashScreen()
+        public Latihan()
         {
             InitializeComponent();
         }
+
     }
 }

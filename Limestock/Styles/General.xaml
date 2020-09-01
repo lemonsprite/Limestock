@@ -1,16 +1,21 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Limestock.Styles">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <!--warna-->
 
     <!--#region Warna Karamel-->
-    <Color x:Key="Caramel_Light">#FFC97D59</Color>
-    <Color x:Key="Caramel_Light_x">#FFD4825D</Color>
-    <Color x:Key="Caramel_Dark">#FFAA4D22</Color>
-    <SolidColorBrush x:Key="Color_DarkCaramel" Color="{StaticResource Caramel_Dark}"/>
-    <SolidColorBrush x:Key="Color_LightCaramel" Color="{StaticResource Caramel_Light}"/>
-    <SolidColorBrush x:Key="Color_LightCaramel_x" Color="{StaticResource Caramel_Light_x}"/>
+    <Color x:Key="AnggurGelap">#2c2c54</Color>
+    <Color x:Key="AnggurGelap_x">#40407a</Color>
+    <Color x:Key="AggurCerah">#40407a</Color>
+    <Color x:Key="CaramelCerah">#cc8e35</Color>
+    <Color x:Key="CaramelCerah_x">#ffda79</Color>
+    <Color x:Key="CaramelGelap">#cd6133</Color>
+    <SolidColorBrush x:Key="Color_AnggurGelap" Color="{StaticResource AnggurGelap}"/>
+    <SolidColorBrush x:Key="Color_AnggurGelap_x" Color="{StaticResource AnggurGelap_x}"/>
+    <SolidColorBrush x:Key="Color_AggurCerah" Color="{StaticResource AggurCerah}"/>
+    <SolidColorBrush x:Key="Color_DarkCaramel" Color="{StaticResource CaramelGelap}"/>
+    <SolidColorBrush x:Key="Color_CaramelCerah" Color="{StaticResource CaramelCerah}"/>
+    <SolidColorBrush x:Key="Color_CaramelCerah_x" Color="{StaticResource CaramelCerah_x}"/>
     <!--#endregion-->
 
 
@@ -25,45 +30,40 @@
 
     <SolidColorBrush x:Key="Brushsecondary" Color="{StaticResource Secondary}"/>
 
-    <BeginStoryboard x:Key="Slide">
-        <Storyboard x:Name="SlideOpen">
-            <DoubleAnimation Storyboard.TargetName="sidebar_panel"
-                             Storyboard.TargetProperty="Width"
-                             BeginTime="0:0:00"
-                             From="55" To="150">
-            </DoubleAnimation>
-        </Storyboard>
-    </BeginStoryboard>
+    
 
     <Style x:Key="SidebarButton" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HorizontalAlignment" Value="left"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Padding" Value="20"/>
+        <Setter Property="Padding" Value="20,10"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border x:Name="SidebarButton"
+                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                             Padding="{TemplateBinding Padding}"
                             Background="{TemplateBinding Background}" 
                             BorderThickness="{TemplateBinding BorderThickness}" 
-                            BorderBrush="{TemplateBinding BorderBrush}">
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            CornerRadius="5">
                         <ContentPresenter x:Name="contentPresenter" 
                                           Focusable="False"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsDefaulted" Value="true">
-                            <Setter Property="BorderBrush" TargetName="SidebarButton" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            <Setter Property="BorderBrush" TargetName="SidebarButton" Value="#FF40407A"/>
                         </Trigger>
                         <!--<Trigger Property="IsMouseOver" Value="true">
                             <Setter Property="Background" TargetName="SidebarButton" Value="#FFD4825D"/>
                         </Trigger>-->
                         <Trigger Property="IsPressed" Value="true">
-                            <Setter Property="Background" TargetName="SidebarButton" Value="Transparent"/>
+                            <Setter Property="Background" TargetName="SidebarButton" Value="#FF40407A"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
-
+                            <Setter Property="Background" TargetName="SidebarButton" Value="#FF40407A"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

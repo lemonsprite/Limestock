@@ -11,18 +11,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Limestock.GUI.Controls
+namespace Limestock.Views
 {
     /// <summary>
-    /// Interaction logic for Sidebar.xaml
+    /// Interaction logic for DashboardView.xaml
     /// </summary>
-    public partial class Sidebar : UserControl
+    public partial class DashboardView : UserControl
     {
-        public Sidebar()
+        public DashboardView()
         {
             InitializeComponent();
         }
-
-        
     }
 }

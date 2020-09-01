@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <Folder Include="Assets\" />
-    <Folder Include="Views\" />
+    <Folder Include="Styles\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,5 +26,17 @@
 
   <ItemGroup>
     <Resource Include="Assets/li_user.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\TransaksiView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\TransaksiView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

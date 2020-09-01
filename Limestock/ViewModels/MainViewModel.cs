@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Limestock.Commands;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Input;
 
 namespace Limestock.ViewModels
 {
@@ -11,7 +13,16 @@ namespace Limestock.ViewModels
         public BaseViewModel ViewModel
         {
             get { return _ViewModel; }
-            set { _ViewModel = value; }
+            set {
+                _ViewModel = value;
+                OnPropertyChanged(nameof(ViewModel));
+            }
+        }
+        public ICommand UpdateView { get; set; }
+
+        public MainViewModel()
+        {
+            UpdateView = new UpdateViewCommand(this);
         }
 
     }

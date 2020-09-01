@@ -1,127 +1,126 @@
-﻿<Window x:Class="Limestock.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Limestock"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1200">
+﻿<Window
+    x:Class="Limestock.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Limestock"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="1200"
+    Height="720"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
     <Grid>
-
 
         <!--#region Grid Definisi-->
         <Grid.RowDefinitions>
-            <RowDefinition Height="55px"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="55px" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60px"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
 
         </Grid.ColumnDefinitions>
         <!--#endregion-->
 
-        <ContentControl Grid.Column="1"
-                        Grid.ColumnSpan="100"
-                        Grid.Row="1"
-                        Margin="0"
-                        Content="{Binding ViewModel}"
-                        />
-
-        <!--#region Sidebar Elemen-->
-        <Grid x:Name="sidebar_panel"
-          HorizontalAlignment="Left"
-          Grid.Row="1"
-          Background="{StaticResource Color_LightCaramel}">
+        <ContentControl
+            x:Name="Konten"
+            Grid.Row="1"
+            Grid.ColumnSpan="100"
+            Margin="0"
+            Content="{Binding ViewModel}" />
+        <StackPanel Grid.Row="1" Background="{StaticResource Color_AnggurGelap}">
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="MouseEnter">
+                            <EventTrigger.Actions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName=""
+                                            Storyboard.TargetProperty="Visibility"
+                                            To="0"
+                                            Duration="0:0:0.300" />
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger.Actions>
+                        </EventTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+            <Button
+                x:Name="Beranda"
+                Height="50"
+                Margin="0,20,0,0"
+                Command="{Binding UpdateView}"
+                CommandParameter="Dashboard"
+                Style="{DynamicResource SidebarButton}">
+                <StackPanel Orientation="Horizontal">
+                    <Path
+                        Width="25"
+                        Data="{StaticResource li_home}"
+                        Fill="White"
+                        RenderOptions.BitmapScalingMode="HighQuality"
+                        Stretch="Uniform" />
+                    <TextBlock
+                        x:Name="Detail"
+                        Margin="20,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        Text="Dashboard"
+                        Visibility="Collapsed" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <Grid
+            x:Name="Navbar"
+            Grid.ColumnSpan="100"
+            Background="{StaticResource Color_AggurCerah}">
             <Grid.Effect>
-                <DropShadowEffect BlurRadius="10" 
-                                  Opacity="0.5"
-                                  Direction="90"
-                                  RenderingBias="Performance"
-                                  ShadowDepth="1"/>
-            </Grid.Effect>
-            <StackPanel Margin="0 20 0 0"
-                    Orientation="Vertical">
-                <Button Style="{DynamicResource SidebarButton}"
-                        x:Name="Beranda">
-                    <Path Data="{StaticResource li_home}"
-                      Stretch="Uniform"
-                      Fill="White"/>
-                </Button>
-
-                <Button Style="{DynamicResource SidebarButton}"
-                        x:Name="Riwayat">
-                    <Path Data="{StaticResource li_chart_bar}"
-                      Stretch="Uniform"
-                      Fill="White"/>
-                </Button>
-                <Button Style="{DynamicResource SidebarButton}"
-                        x:Name="Transaksi">
-                    <Path Data="{StaticResource li_share}"
-                      Stretch="Uniform"
-                      Fill="White"/>
-                </Button>
-                <Button Style="{DynamicResource SidebarButton}"
-                        x:Name="Inventaris">
-                    <Path Data="{StaticResource li_task_list}"
-                          Stretch="Uniform"
-                          Fill="White"/>
-                </Button>
-                <Button Style="{DynamicResource SidebarButton}"
-                        x:Name="Laporan">
-                    <Path Data="{StaticResource li_laman}"
-                          Stretch="Uniform"
-                          Fill="White"/>
-                </Button>
-                <Button Style="{DynamicResource SidebarButton}"
-                        x:Name="Pengaturan">
-                    <Path Data="{StaticResource li_gear}"
-                          Stretch="Uniform"
-                          Fill="White"/>
-                </Button>
-            </StackPanel>
-        </Grid>
-        <!--#endregion-->
-
-        <!--#region Navbar Elemen-->
-        <Grid Background="{StaticResource Color_DarkCaramel}"
-              Grid.ColumnSpan="100">
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="10" 
-                                  Opacity="0.5"
-                                  RenderingBias="Performance"
-                                  ShadowDepth="1"/>
+                <DropShadowEffect
+                    BlurRadius="10"
+                    Opacity="0.5"
+                    RenderingBias="Performance"
+                    ShadowDepth="1" />
             </Grid.Effect>
 
 
             <Grid>
-                <Button Style="{DynamicResource ProfilButton}"
+                <Button
+                    x:Name="Profil"
+                    Margin="0,0,20,0"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Center"
-                    Margin="0 0 20 0">
-                    <WrapPanel Margin="0">
+                    Style="{DynamicResource ProfilButton}">
+                    <WrapPanel x:Name="ProfilKonten" Margin="0">
                         <WrapPanel Orientation="Vertical">
-                            <TextBlock Text="LIME PEOPLE"
-                               VerticalAlignment="Center"
-                               Margin="0 0 20 0"
-                               FontFamily="./Fonts/#Ubuntu"
-                               FontSize="16"
-                               FontWeight="Bold"
-                               Foreground="White"
-                               HorizontalAlignment="Right"/>
-                            <TextBlock Text="Admin"
-                                   VerticalAlignment="Center"
-                                   Margin="0 0 20 0"
-                                   FontFamily="./Fonts/#Ubuntu"
-                                   FontSize="12"
-                                   Foreground="White"
-                                   HorizontalAlignment="Right"/>
+                            <TextBlock
+                                Margin="0,0,20,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                FontFamily="./Fonts/#Ubuntu"
+                                FontSize="16"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Text="LIME PEOPLE" />
+                            <TextBlock
+                                Margin="0,0,20,0"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                FontFamily="./Fonts/#Ubuntu"
+                                FontSize="12"
+                                Foreground="White"
+                                Text="Admin" />
                         </WrapPanel>
                         <WrapPanel Background="Transparent">
-                            <Image Width="35" SnapsToDevicePixels="True"
-                                   RenderOptions.BitmapScalingMode="HighQuality">
+                            <Image
+                                Width="35"
+                                RenderOptions.BitmapScalingMode="HighQuality"
+                                SnapsToDevicePixels="True">
                                 <Image.Source>
-                                    <BitmapImage UriSource="Assets/li_user.png"/>
+                                    <BitmapImage UriSource="Assets/li_user.png" />
                                 </Image.Source>
                             </Image>
                         </WrapPanel>
@@ -129,14 +128,19 @@
                 </Button>
             </Grid>
 
-            <TextBlock Text="Limestock App"
-                   FontSize="24"
-                   FontFamily="./Fonts/#Satisfy"
-                       VerticalAlignment="Center"
-                       Margin="20 0 0 0"
-                   HorizontalAlignment="Left"
-                   Foreground="White"/>
+            <TextBlock
+                x:Name="Logo"
+                Margin="20,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontFamily="./Fonts/#Satisfy"
+                FontSize="24"
+                Foreground="White"
+                Text="Limestock App" />
         </Grid>
+        <!--#endregion-->
+
+        <!--#region Navbar Elemen-->
         <!--#endregion-->
     </Grid>
 </Window>

@@ -11,6 +11,18 @@ namespace Limestock.EFramework
         //konstruktor untuk kelas dbContext
         public LimestockDbContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<User> Users { get; set; }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.User)
+                .WithMany(u => u.Orders);
+
+
+            base.OnModelCreating(modelBuilder);
+        }
+        public DbSet<User> User { get; set; }
+        public DbSet<Order> Order { get; set; }
+        public DbSet<Konsumen> Konsumen { get; set; }
+        public DbSet<Produk> Produk { get; set; }
     }
 }

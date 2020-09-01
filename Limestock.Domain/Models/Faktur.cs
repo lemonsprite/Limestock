@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Limestock.GUI.ViewModels
+namespace Limestock.Domain.Models
 {
-    public class ViewModelBase
+    public class Faktur : modelID
     {
 
     }
